@@ -1,0 +1,342 @@
+{
+	"info": {
+		"_postman_id": "9ad3bf0c-fff8-4b44-b55c-2b8bc82bda07",
+		"name": "Business Central APIs",
+		"description": "[https://businesscentral.dynamics.com/](https://businesscentral.dynamics.com/)\n\n[https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/devenv-develop-connect-apps](https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/developer/devenv-develop-connect-apps)\n\n[https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/](https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/)\n\n[https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/dynamics-subscriptions](https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/dynamics-subscriptions)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6984622"
+	},
+	"item": [
+		{
+			"name": "Metadata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.businesscentral.dynamics.com/v2.0/{{environment}}/api/v2.0/$metadata",
+					"protocol": "https",
+					"host": [
+						"api",
+						"businesscentral",
+						"dynamics",
+						"com"
+					],
+					"path": [
+						"v2.0",
+						"{{environment}}",
+						"api",
+						"v2.0",
+						"$metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Companies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.businesscentral.dynamics.com/v2.0/{{environment}}/api/v2.0/companies",
+					"protocol": "https",
+					"host": [
+						"api",
+						"businesscentral",
+						"dynamics",
+						"com"
+					],
+					"path": [
+						"v2.0",
+						"{{environment}}",
+						"api",
+						"v2.0",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item by number",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.businesscentral.dynamics.com/v2.0/{{environment}}/api/v2.0/companies({{companyId}})/items?$filter=number eq '1896-S'",
+					"protocol": "https",
+					"host": [
+						"api",
+						"businesscentral",
+						"dynamics",
+						"com"
+					],
+					"path": [
+						"v2.0",
+						"{{environment}}",
+						"api",
+						"v2.0",
+						"companies({{companyId}})",
+						"items"
+					],
+					"query": [
+						{
+							"key": "$filter",
+							"value": "number eq '1896-S'"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.businesscentral.dynamics.com/v2.0/{{environment}}/api/v2.0/companies({{companyId}})/items",
+					"protocol": "https",
+					"host": [
+						"api",
+						"businesscentral",
+						"dynamics",
+						"com"
+					],
+					"path": [
+						"v2.0",
+						"{{environment}}",
+						"api",
+						"v2.0",
+						"companies({{companyId}})",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Items",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "If-Match",
+						"value": "W/\"JzIwOzEyNjU2OTk5MjI4MTAzMzAyMzA0MTswMDsn\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"displayName\": \"Scrivania ATENE - updated\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.businesscentral.dynamics.com/v2.0/{{environment}}/api/v2.0/companies({{companyId}})/items(c15df38f-0fe2-ec11-bb47-000d3a21e44e)",
+					"protocol": "https",
+					"host": [
+						"api",
+						"businesscentral",
+						"dynamics",
+						"com"
+					],
+					"path": [
+						"v2.0",
+						"{{environment}}",
+						"api",
+						"v2.0",
+						"companies({{companyId}})",
+						"items(c15df38f-0fe2-ec11-bb47-000d3a21e44e)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscriptions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.businesscentral.dynamics.com/v2.0/{{environment}}/api/v2.0/subscriptions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"businesscentral",
+						"dynamics",
+						"com"
+					],
+					"path": [
+						"v2.0",
+						"{{environment}}",
+						"api",
+						"v2.0",
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscriptions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"notificationUrl\": \"<CALLBACK_URL>\",\n  \"resource\": \"/api/v2.0/companies({{companyId}})/items\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.businesscentral.dynamics.com/v2.0/{{environment}}/api/v2.0/subscriptions",
+					"protocol": "https",
+					"host": [
+						"api",
+						"businesscentral",
+						"dynamics",
+						"com"
+					],
+					"path": [
+						"v2.0",
+						"{{environment}}",
+						"api",
+						"v2.0",
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscriptions",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "If-Match",
+						"value": "W/\"JzIwOzEyMTYzMTYyODUwMTIzODI0Njg3MTswMDsn\"",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.businesscentral.dynamics.com/v2.0/{{environment}}/api/v2.0/subscriptions('9a78e8a3cb5d46aba636824af8cc7a8c')",
+					"protocol": "https",
+					"host": [
+						"api",
+						"businesscentral",
+						"dynamics",
+						"com"
+					],
+					"path": [
+						"v2.0",
+						"{{environment}}",
+						"api",
+						"v2.0",
+						"subscriptions('9a78e8a3cb5d46aba636824af8cc7a8c')"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "clientSecret",
+				"value": "{{clientSecret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{clientId}}",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "scope",
+				"value": "https://api.businesscentral.dynamics.com/.default",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "Business Central 2-legged",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "environment",
+			"value": "sandbox"
+		},
+		{
+			"key": "tenantId",
+			"value": ""
+		},
+		{
+			"key": "companyId",
+			"value": ""
+		},
+		{
+			"key": "clientId",
+			"value": ""
+		},
+		{
+			"key": "clientSecret",
+			"value": ""
+		}
+	]
+}

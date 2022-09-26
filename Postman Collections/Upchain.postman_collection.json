@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "96053c6f-41d8-4984-99fd-f0350bdda2c9",
+		"name": "Upchain",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6984622"
+	},
+	"item": [
+		{
+			"name": "Companies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://live.upchain.net/api/auth/v1/companies",
+					"protocol": "https",
+					"host": [
+						"live",
+						"upchain",
+						"net"
+					],
+					"path": [
+						"api",
+						"auth",
+						"v1",
+						"companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hooks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Upc-Selected-Company",
+						"value": "{{CompanyId}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://live.upchain.net/api/v1/hooks/",
+					"protocol": "https",
+					"host": [
+						"live",
+						"upchain",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"hooks",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hooks",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Upc-Selected-Company",
+						"value": "{{CompanyId}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\":\"Inform powerGate ecr.status.updated\",\n    \"events\": [\n        \"ecr.status.updated\"\n        ],\n    \"url\":\"<CALLBACK_URL>\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://live.upchain.net/api/v1/hooks/",
+					"protocol": "https",
+					"host": [
+						"live",
+						"upchain",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"hooks",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hooks",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Upc-Selected-Company",
+						"value": "{{CompanyId}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://live.upchain.net/api/v1/hooks/:hookId",
+					"protocol": "https",
+					"host": [
+						"live",
+						"upchain",
+						"net"
+					],
+					"path": [
+						"api",
+						"v1",
+						"hooks",
+						":hookId"
+					],
+					"variable": [
+						{
+							"key": "hookId",
+							"value": "182"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ECR",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Upc-Selected-Company",
+						"value": "{{CompanyId}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://live.upchain.net/api/workflow/v1/ecr/:ecrId/items",
+					"protocol": "https",
+					"host": [
+						"live",
+						"upchain",
+						"net"
+					],
+					"path": [
+						"api",
+						"workflow",
+						"v1",
+						"ecr",
+						":ecrId",
+						"items"
+					],
+					"variable": [
+						{
+							"key": "ecrId",
+							"value": "61477"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Item",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Upc-Selected-Company",
+						"value": "{{CompanyId}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://live.upchain.net/api/item/v1/partVersion/:partVersionId",
+					"protocol": "https",
+					"host": [
+						"live",
+						"upchain",
+						"net"
+					],
+					"path": [
+						"api",
+						"item",
+						"v1",
+						"partVersion",
+						":partVersionId"
+					],
+					"variable": [
+						{
+							"key": "partVersionId",
+							"value": "982918"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "tokenName",
+				"value": "Upchain 2-legged",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			},
+			{
+				"key": "scope",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "{{Password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{Username}}",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://live-sso.upchain.net/auth/realms/upchain/protocol/openid-connect/token",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "password_credentials",
+				"type": "string"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "redirect_uri",
+				"value": "https://www.getpostman.com/oauth2/callback",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{ClientSecret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{ClientId}}",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "https://developer.api.autodesk.com/authentication/v1/authorize",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ClientId",
+			"value": ""
+		},
+		{
+			"key": "ClientSecret",
+			"value": ""
+		},
+		{
+			"key": "Username",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "Password",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "CompanyId",
+			"value": ""
+		}
+	]
+}

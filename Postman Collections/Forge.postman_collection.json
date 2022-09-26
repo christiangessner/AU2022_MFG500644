@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "ffae5200-ec4c-4c90-93c9-a5f7e6eef862",
+		"name": "Forge",
+		"description": "[https://forge.autodesk.com/en/docs/webhooks/v1/reference/events/flc_events/](https://forge.autodesk.com/en/docs/webhooks/v1/reference/events/flc_events/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6984622"
+	},
+	"item": [
+		{
+			"name": "Fusion 360 Manage",
+			"item": [
+				{
+					"name": "Workspaces",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{tenant}}.autodeskplm360.net/api/v3/workspaces?limit=50",
+							"protocol": "https",
+							"host": [
+								"{{tenant}}",
+								"autodeskplm360",
+								"net"
+							],
+							"path": [
+								"api",
+								"v3",
+								"workspaces"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Webhooks",
+			"item": [
+				{
+					"name": "Hooks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/webhooks/v1/hooks",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"webhooks",
+								"v1",
+								"hooks"
+							]
+						},
+						"description": "Lists all buckets."
+					},
+					"response": []
+				},
+				{
+					"name": "Hooks",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant",
+								"value": "{{tenant}}",
+								"description": "This must be uppercase!!!",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"callbackUrl\": \"\",\n    \"scope\": {\n        \"workspace\" : \"\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/webhooks/v1/systems/:system/hooks",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"webhooks",
+								"v1",
+								"systems",
+								":system",
+								"hooks"
+							],
+							"variable": [
+								{
+									"key": "system",
+									"value": "adsk.flc.production"
+								}
+							]
+						},
+						"description": "Lists all buckets."
+					},
+					"response": []
+				},
+				{
+					"name": "Hooks (single event)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tenant",
+								"value": "{{tenant}}",
+								"description": "This must be uppercase!!!",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"callbackUrl\": \"<CALLBACK_URL>\",\n    \"scope\": {\n        \"workspace\" : \"urn:adsk.plm:tenant.workspace:DEFAULTTRAIN61.86\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/webhooks/v1/systems/:system/events/:event/hooks",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"webhooks",
+								"v1",
+								"systems",
+								":system",
+								"events",
+								":event",
+								"hooks"
+							],
+							"variable": [
+								{
+									"key": "system",
+									"value": "adsk.flc.production"
+								},
+								{
+									"key": "event",
+									"value": "item.update"
+								}
+							]
+						},
+						"description": "Lists all buckets."
+					},
+					"response": []
+				},
+				{
+					"name": "Hooks",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/webhooks/v1/systems/data/events/item.update/hooks/:hookId",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"webhooks",
+								"v1",
+								"systems",
+								"data",
+								"events",
+								"item.update",
+								"hooks",
+								":hookId"
+							],
+							"variable": [
+								{
+									"key": "hookId",
+									"value": "4de1afd8-48e8-4f19-a2e5-485c06501c54"
+								}
+							]
+						},
+						"description": "Lists all buckets."
+					},
+					"response": []
+				}
+			],
+			"description": "[https://forge.autodesk.com/en/docs/webhooks/v1/reference/http/webhooks/systems-system-events-event-hooks-POST/](https://forge.autodesk.com/en/docs/webhooks/v1/reference/http/webhooks/systems-system-events-event-hooks-POST/)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "tokenName",
+				"value": "Forge 3-legged",
+				"type": "string"
+			},
+			{
+				"key": "redirect_uri",
+				"value": "https://localhost:5001/forge/login/callback",
+				"type": "string"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "scope",
+				"value": "data:read data:create data:write",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "authorization_code",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{ClientSecret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{ClientId}}",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "https://developer.api.autodesk.com/authentication/v1/authorize",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "body",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://developer.api.autodesk.com/authentication/v1/gettoken",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ClientId",
+			"value": ""
+		},
+		{
+			"key": "ClientSecret",
+			"value": ""
+		},
+		{
+			"key": "tenant",
+			"value": ""
+		},
+		{
+			"key": "event",
+			"value": "item.update"
+		},
+		{
+			"key": "system",
+			"value": "adsk.flc.production"
+		}
+	]
+}
